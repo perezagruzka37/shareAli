@@ -1,0 +1,9 @@
+body{
+height: 400px;
+width: 400px;
+}
+.iconStyle { /* стиль иконки */
+	width: 20px;
+	height: 20px;
+    float: none;
+}

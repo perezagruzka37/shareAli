@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <script src="js/jquery.js" type="text/javascript"></script> <!-- Подключаю jquery -->
+        <script src="js/local/cn_en.js" type="text/javascript"></script> <!-- Подключаю класс Order -->
+        <script src="js/track/track.js" type="text/javascript"></script> <!-- Подключаю класс Order -->
+        <script src="js/user/user.js" type="text/javascript"></script> <!-- Подключаю класс Order -->
+        <script src="js/order/order.js" type="text/javascript"></script> <!-- Подключаю класс Order -->
+        <link href="css/orderPage.css" rel="stylesheet" type="text/css"/><!-- Подключаю стили-->
+    </head>
+    <body>
+        <div id="leftPanel">
+  <div id="findPanel">
+      <input placeholder="buyerId" id="buyerId" type="text" size="14">
+      <input id="parseUser" title='Выводит информацию о пользователе' type="button" value="Юзер"/>
+      <input title='Поиск обостренных споров пользователя' type="button" value="Cases" data-action="findCases"/>
+      <input data-action="doFeedBack" title='Выводит информацию об отзывах' type="button" value="Отзы"/>
+      <input data-action="findUser" title='Выводит информацию о пользователе в Минерве' type="button" value="买"/><br>
+      <input placeholder="order N" id="orderN" type="text" size="14">
+      <input id="parseOrder" title='Парсит ордерПэйдж' type="button" value="Заказ">
+      <input title='Поиск обостренного спора по заказу' type="button" value="Case" data-action="findCase"/>
+      <input title='Обжалования по заказу' type="button" value="Обж" data-action="woHistList"/>
+      <input title='Открывает Заказ в Минерве' type="button" value="易" data-action="doOrder"/><br>
+      <select id = 'orderList'></select><br>
+        <input placeholder="track" id="YQNum" type="text"  size="15">
+      <input id="parseTrack" title='щет посылку' type="button" value="Трэк">
+        <img class='iconStyle' src="res/gde.ico" title="Отследить на 'Где Посылка'" data-action="findParcel" data-site="https://gdeposylka.ru/"/>
+        <img class='iconStyle' src="res/gdeTo.png" title="Отследить на 'Где-то Едет'" data-action="findParcel" data-site="https://gdetoedet.ru/track/"/>
+        <img class='iconStyle' src="res/global.png" title="Отследить на global.cainiao.com" data-action="findParcel" data-site="http://global.cainiao.com/detail.htm?mailNoList="/>
+        <img class='iconStyle' src="res/17.ico"     title="Отследить на '17ТРЭК'"  data-action="findParcel" data-site="http://www.17track.net/ru/track?nums="/>
+        <img class='iconStyle' src="res/pr.ico"     title="Отследить на Почте России" data-action="findParcel" data-site="https://www.pochta.ru/tracking#"/>
+  </div>
+            <div id="user">
+                <div><img src="" alt="Нет фото"><img hidden src="" alt="Фото" height="120" width="120"></div>
+                <div><span></span></div>
+                <div><span style="background:  #d4d9de;"></span></div>
+                <div>Риск: <span></span></div>
+                <div>Рейтинг: <span></span></div>
+                <div>С нами с: <span></span></div>
+                <div>Статус: <span></span></div>
+                <div id="blocked"><span></span></div>
+                <div><span></span></div>
+                <div><span></span></div>
+                <div id="asGuest">Гостевой: <span></span></div>
+            </div>
+              <div id="shortInfo" contenteditable="true">
+                <div id="usersInfo"></div>
+                <div id="refundInfo"></div>
+                <div id="shippingInfo"></div>
+                <div id="trackingInfo"></div>
+                <div></div>
+              </div>
+        </div>
+            <table class="order" id="orderNode" hidden="">
+            <tbody>
+                <tr>
+                    <td class="orderNum">Номер</td>
+                    <td class="trading">Создание</td>
+                    <!-- <td class="bp">Срок доставки</td> -->
+                    <td class="stocking">Срок отправки</td>
+                    <td class="ifTimeOut">Таймаут</td>
+                </tr>
+                <tr class="mainInfo">
+                    <td class="orderNum"></td>
+                    <td class="trading"></td>
+                    <!-- <td class="bp"></td> -->
+                    <td class="stocking"></td>
+                    <td class="ifTimeOut"></td>
+                </tr>
+                <tr>
+                    <td class="buyer">Покупатель</td> 
+                    <td class="name"> </td>
+                    <td class="seller">Продавец</td>
+                    <td class="name"> </td>
+                </tr>
+                <tr class="contragents">
+                    <td class="buyer"></td> 
+                    <td class="photo"><a title="Сообщения заказа" href="" target="_blank"><img src="" alt="Сообщения заказа"></a>   </td>
+                    <td class="seller"></td>
+                    <td class="photo"><a title="Послать уведомление" href="https://crm.alibaba-inc.com/alps/buyer/intl/customerQuery.vm?searchMode=primeSearch" target="_crmSearch"><img src="" alt="Послать уведомление"></a></td>
+                    <td class="photo"><img src="" alt=""></td>
+                </tr>
+                <tr>
+                    <td class="payment">Оплата</td>
+                    <td class="refund">Возврат</td>
+                    <td class="couponAE"> Купон AliExpress</td>
+                    <td class="couponSeller">Купон Продавца</td>
+                    <td class="shippay">Оплата Доставки</td>
+                    <!-- <td class="discountSeller"> Скидка<br>Продавца</td> -->
+                </tr>
+                <tr class="payInfo">
+                    <td class="payment"></td>
+                    <td class="refund"></td>
+                    <td class="couponAE"></td>
+                    <td class="couponSeller"></td>
+                    <td class="shippay"></td>
+                    <!-- <td class="discountSeller"></td> -->
+                </tr>
+                <tr>
+                    <td class="">Трэк-номер</td>
+                    <td colspan=2 class="">Адрес</td>
+                    <td class="">Отправлено</td>
+                    <td class="">Доставлено</td>
+                    <td colspan=3 class="">Отслеживание</td>
+                </tr>
+                <tr class="shipping">
+                    <td  class=""></td>
+                    <td colspan=2 class=""></td>
+                    <td class=""></td>
+                    <td class=""></td>
+                    <td colspan=3 class=""></td>
+                </tr>
+                <tr> 
+                    <td class="childNum">Подзаказ</td>
+                    <td class="pic"></td>
+                    <td colspan=2 class="childName">Название</td>
+                    <td class="pay">Сумма</td>
+                    <td class="shipState">Доставка</td>
+                    <td class="state">Статус</td>
+                    <td class="refund"></td>
+                </tr>
+                <tr id="childNode" class="childOrder" hidden="">
+                    <td class="childNum"></td>
+                    <td class="pic"><a href="" target="_blank"><img src="" height="120" width="120"></a></td>
+                    <td colspan=2 class="childName"></td>
+                    <td class="payment"></td>
+                    <td class="shipState"></td>
+                    <td class="state"></td>
+                    <td class="refund"></td>
+                </tr>
+            </tbody>
+            <tbody class="operation"></tbody>                
+            </table>
+        <div id="orders">
+        </div>
+    </body>
+        <script src="js/functions.js" type="text/javascript"></script> 
+        <script src="js/fastView.js" type="text/javascript"></script> 
+        <script src="js/orderPrint.js" type="text/javascript"></script> 
+        <script src="js/orderPage.js" type="text/javascript"></script> <!-- Подключаю класс Order -->

@@ -1,0 +1,44 @@
+ {
+  "manifest_version": 2,
+  "name": "Parser",
+  "version": "1.0",
+  "update_url": "https://drive.google.com/file/d/0B1CnDYSutndvZEw5STFseWh2WGc/view?usp=sharing",
+  "icons": {
+ "48": "i/amsn_48.png",
+    "128": "i/amsn_128.png",
+    "16": "i/amsn_16.png"
+},
+
+  "content_scripts": [
+    {
+      "matches": [ "*://*/*" ],
+      "js": [ "js/content.js" ]
+    }
+  ],
+  "background": {
+    "scripts": ["js/background.js", "js/local/cn_en.js", "js/order/order.js", "js/user/user.js", "js/track/track.js", "js/jquery.js"]
+  },
+    "content_security_policy": "script-src 'self' https://example.com; object-src 'self'",
+  "permissions": [
+          "tabs",
+    "contextMenus",
+      "http://orders.com/*",
+      "https://gdeposylka.ru/*",
+      "http://minerva.aliexpress.com/*"
+  ],
+  "web_accessible_resources": [
+    "i/*.png",
+    "style/double-rainbow.css",
+    "script/double-rainbow.js",
+    "script/main.js",
+    "templates/*"
+  ],
+
+      "browser_action": {
+        "default_title": "LostTime",
+        "default_icon": "i/amsn_16.png",
+        "default_popup": "popup.html"
+    }
+	
+}
+

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>Order Parsing</title>
+    <script src="js/jquery.js" type="text/javascript"></script> <!-- Подключаю jquery -->
+    <script src="js/functions.js" type="text/javascript"></script> <!-- Подключаю класс Order -->
+    <script src="js/track/track.js" type="text/javascript"></script> <!-- Подключаю класс Order -->
+    <script src="js/local/cn_en.js" type="text/javascript"></script> <!-- Подключаю класс Order -->
+    <script src="js/fastView.js" type="text/javascript"></script> <!-- Подключаю класс Order -->
+    <script src="js/user/user.js" type="text/javascript"></script> <!-- Подключаю класс Order -->
+    <script src="js/order/order.js" type="text/javascript"></script> <!-- Подключаю класс Order -->
+  	<link href="css/popup.css" rel="stylesheet" type="text/css"/><!-- Подключаю стили-->
+  	<!-- <link href="css/styles.css" rel="stylesheet" type="text/css"/>-->
+  </head>
+  <body>
+  <div id="findPanel">
+      <input placeholder="buyerId" id="buyerId" type="text" size="14">
+      <input data-action="parseUser" title='Выводит информацию о пользователе' type="button" value="Юзер"/>
+      <input title='Поиск обостренных споров пользователя' type="button" value="Cases" data-action="findCases"/>
+      <input data-action="doFeedBack" title='Выводит информацию об отзывах' type="button" value="Отзывы"/>
+      <input data-action="findUser" title='Выводит информацию о пользователе в Минерве' type="button" value="买"/><br>
+      <input placeholder="order N" id="orderN" type="text" size="14">
+      <input data-action="parseOrder" title='Парсит ордерПэйдж' type="button" value="Заказ">
+      <input title='Поиск обостренного спора по заказу' type="button" value="Case" data-action="findCase"/>
+      <input title='Обжалования по заказу' type="button" value="Обж" data-action="woHistList"/>
+      <input title='Открывает Заказ в Минерве' type="button" value="易" data-action="doOrder"/><br>
+      <select id = 'orderList'></select><br>
+        <input placeholder="track" id="YQNum" type="text"  size="15">
+        <img class='iconStyle' src="res/gde.ico" title="Отследить на 'Где Посылка'" data-action="findParcel" data-site="https://gdeposylka.ru/"/>
+        <img class='starter iconStyle' src="res/gdeTo.png" title="Отследить на 'Где-то Едет'" data-action="findParcel" data-site="https://gdetoedet.ru/track/"/>
+        <img class='iconStyle' src="res/global.png" title="Отследить на global.cainiao.com" data-action="findParcel" data-site="http://global.cainiao.com/detail.htm?mailNoList="/>
+        <img class='iconStyle' src="res/17.ico"     title="Отследить на '17ТРЭК'"  data-action="findParcel" data-site="http://www.17track.net/ru/track?nums="/>
+        <img class='iconStyle' src="res/pr.ico"     title="Отследить на Почте России" data-action="findParcel" data-site="https://www.pochta.ru/tracking#"/>
+  </div>
+  <div id="user"></div>
+              <div id="shortInfo" contenteditable="true">
+                <div id="usersInfo"></div>
+                <div id="refundInfo"></div>
+                <div id="shippingInfo"></div>
+                <div id="trackingInfo"></div>
+                <div></div>
+              </div>
+  <div class="orders"></div>
+  </div>
+    <script src="js/popup.js"></script><!-- скрипт, выполняющийся при нажатии на иконку расширения-->
+  </body>
+</html>

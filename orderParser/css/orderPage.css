@@ -1,0 +1,67 @@
+.iconStyle { /* стиль иконки */
+    width: 20px;
+    height: 20px;
+    float: none;
+}
+#usersInfo{
+	background: #d4d9de;
+}
+#refundInfo{
+	background: #20B907;
+}
+#trackingInfo{
+	background: #0ff;
+}
+#leftPanel {
+    float: left;
+    width: 25%;
+    padding: 0.5%;
+}
+#user{
+/*    position: absolute;*/
+    font-size: 150%;
+    background: dodgerblue;
+}
+
+#shortInfo {
+    padding: 0.5%;
+    position: inherit; 
+    font-size: 100%;
+    background: #b7bfc8;
+
+}
+.operation{
+    font-size: 90%;
+}
+.operation td:nth-child(3){
+    word-break: break-word;
+}
+.operation td:nth-child(4){
+    font-size: 80%;
+    word-break: break-word;
+}
+table{
+border: 2px solid #382458;
+    font-size: 100%;
+
+}
+td{
+border-bottom: 2px solid #382458;
+    border-left: 2px solid #382458;
+}
+#orders{
+    font-size: 125%;
+    padding: 0.5%;
+    /*display: block;*/
+    margin-left: 26%;
+    background: #d4d9de;
+}
+#blocked{
+    /*display: none;*/
+    background: red;
+}
+#asGuest{
+    display: none;
+    background: red;
+    
+}
